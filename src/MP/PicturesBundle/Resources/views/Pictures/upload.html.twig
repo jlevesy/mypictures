@@ -1,0 +1,16 @@
+{% extends "MPPicturesBundle::layout.html.twig" %}
+
+
+{% block pictures_body %}
+
+  <section>
+    {% for message in app.session.flashbag.get('notice') %}
+        <div id="messageFlash"><div class="flash">{{ message }}</div></div>
+    {% endfor %}
+
+    <div id="addImage-form">
+          {{ include("MPPicturesBundle:Pictures:imageForm.html.twig") }}
+    </div>
+  </section>
+
+{% endblock %}

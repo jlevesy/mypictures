@@ -1,0 +1,26 @@
+{% extends "MPPicturesBundle::layout.html.twig" %}
+
+{% block title %}
+  Supprimer une annonce - {{ parent() }}
+{% endblock %}
+
+{% block pictures_body %}
+
+  <h2>Supprimer une image</h2>
+
+  <p>
+    Etes-vous certain de vouloir supprimer l'image "{{ image.alt }}" ?
+  </p>
+
+  <form action="{{ path('mp_pictures_remove', {'id': image.id}) }}" method="post">
+    <a href="{{ path('mp_pictures_homepage') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la gallerie
+    </a>
+
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+
+    {{ form_rest(form) }}
+  </form>
+
+{% endblock %}

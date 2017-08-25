@@ -1,0 +1,38 @@
+{% extends "MPPicturesBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block pictures_body %}
+<div class="container">
+  <section class="row">  
+
+  	{% for image in listImages %}
+    <div class="col-xs-6 col-sm-3 col-md-2 ">
+			{% if app.user %}
+			<a class="glyphicon glyphicon-remove" href="{{ path('mp_pictures_remove', {'id': image.id}) }}">{% endif %}
+				<a class="thumbnail" href="{{ asset(image.webPath) }}">
+					<img src="{{ asset(image.webPath) }}" alt="{{ image.alt }}" title="{{ image.title }}">
+				</a>
+			</a>
+    </div>
+  	{% endfor %}
+		
+		
+
+
+	  </section>	
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+	function selectionner(idItem) {
+		var divElt = document.getElementById(idItem);
+		var contenu = divElt.innerHTML;
+		var cible = document.getElementById('cible');
+		cible.innerHTML = contenu;
+	}
+</script>
+{% endblock %}

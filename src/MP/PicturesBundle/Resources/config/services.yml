@@ -1,0 +1,4 @@
+services:
+#    mp_pictures.example:
+#        class: MP\PicturesBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

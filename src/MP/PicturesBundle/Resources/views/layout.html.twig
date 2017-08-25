@@ -1,0 +1,27 @@
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+  <div id="navigation">  
+		<ul class="nav nav-pills">
+			{% if is_granted('ROLE_ADMIN') %}
+				<li><a href="{{ path('mp_pictures_upload') }}">Ajouter des photos</a></li>
+			{% endif %}
+			{% if app.user %}
+				<li><a href="{{ path('logout') }}">Se deconnecter</a></li>
+			{% else %}
+				<li><a href="{{ path('login') }}">Se connecter</a></li>
+			{% endif %}
+		</ul>
+  </div>
+  <hr>
+	
+  {% for message in app.session.flashbag.get('notice') %}
+    <div class="alert alert-info">Message flash : {{ message }}</div>
+  {% endfor %}
+	
+  {% block pictures_body %}
+  {% endblock %}
+
+{% endblock %}

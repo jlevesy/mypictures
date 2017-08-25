@@ -1,0 +1,16 @@
+mp_pictures_homepage:
+    path:     /
+    defaults:
+        _controller: MPPicturesBundle:Pictures:index
+
+mp_pictures_upload:
+    path:     /upload
+    defaults:
+        _controller: MPPicturesBundle:Pictures:upload
+
+mp_pictures_remove:
+    path:     /remove/{id}
+    defaults:
+        _controller: MPPicturesBundle:Pictures:remove
+    requirements:
+        id: \d+
